@@ -1,8 +1,13 @@
 #include <iostream>
 using namespace std;
 
+int mem[1000];
+
 int solve(int n)
 {
+    if (mem[n] > 0)
+        return mem[n];
+    
     if (n < 2)
     {
         if (n == 1)
@@ -18,6 +23,7 @@ int solve(int n)
     }
     result++;
 
+    mem[n] = result;
     return result;
 }
 
