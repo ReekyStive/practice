@@ -68,6 +68,5 @@ int main()
 
     cout << ans << endl;
 
-    system("pause");
     return 0;
 }

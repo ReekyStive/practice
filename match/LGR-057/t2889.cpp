@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -32,6 +31,5 @@ int main()
     cin >> m;
     for (int i = 0; i < m; i++)
         cin >> R[i];
-    system("pause");
     return 0;
 }

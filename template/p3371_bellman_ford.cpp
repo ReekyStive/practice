@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
 const int INF = 1 << 30;
@@ -55,6 +54,5 @@ int main()
     for (int i = 0; i < n; i++)
         cout << d[i] << " ";
 
-    system("pause");
     return 0;
 }

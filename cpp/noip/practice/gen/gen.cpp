@@ -53,7 +53,5 @@ int main()
     // intime = (double)(end - begin) / CLOCKS_PER_SEC;
     // cout << "freopen scanf" << n << " Iutput : " << intime << "s" << endl;
 
-    system("pause");
-
     return 0;
 }

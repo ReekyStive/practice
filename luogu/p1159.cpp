@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stack>
-#include <windows.h>
 using namespace std;
 
 stack<int> s;
@@ -51,6 +50,5 @@ int main()
 {
     readin();
     cout <<  s.top();
-    system("pause");
     return 0;
 }

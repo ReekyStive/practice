@@ -31,6 +31,5 @@ int main()
 
     cout << dp(m - 1, t) << endl;
 
-    system("pause");
     return 0;
 }

@@ -32,7 +32,6 @@ int main()
 
     // end = clock();
     // times = (end - start) / CLOCKS_PER_SEC;
-    // system("pause");
 
     return 0;
 }

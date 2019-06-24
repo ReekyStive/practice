@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <cstdio>
-#include <windows.h>
 using namespace std;
 
 const int maxn = 100000 + 10;
@@ -35,7 +34,6 @@ int main()
     }
 
     cout << job[cur] << endl;
-    system("pause");
 
     return 0;
 }

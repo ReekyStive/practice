@@ -76,6 +76,5 @@ int main()
         cout << endl;
     }
     cout << cnt << endl;
-    system("pause");
     return 0;
 }

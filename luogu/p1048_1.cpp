@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
 int dp[101][1001];
@@ -21,6 +20,5 @@ int main()
                 dp[i + 1][j] = max(dp[i][j], dp[i][j - spend[i]] + value[i]);
         }
     cout << dp[m][t];
-    system("pause");
     return 0;
 }

@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <windows.h>
 
 using namespace std;
 
@@ -46,6 +45,5 @@ int main()
         ans = -1;
     cout << ans;
 
-    system("pause");
     return 0;
 }

@@ -27,6 +27,5 @@ int main()
 
     cout << dp(m - 1, n) << endl;
 
-    system("pause");
     return 0;
 }

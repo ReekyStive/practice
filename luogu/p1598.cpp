@@ -41,7 +41,5 @@ int main()
     for (char i = 'A'; i <= 'Z'; i++)
         cout << i << ' ';
     
-    system("pause");
-
     return 0;
 }

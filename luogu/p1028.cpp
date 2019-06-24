@@ -32,6 +32,5 @@ int main()
     int n;
     cin >> n;
     cout << solve(n) << endl;
-    system("pause");
     return 0;
 }

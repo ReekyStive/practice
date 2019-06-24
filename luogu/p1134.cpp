@@ -19,7 +19,5 @@ int main()
     ans %= 10;
     cout << ans << endl;
 
-    system("pause");
-
     return 0;
 }

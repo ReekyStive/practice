@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 using namespace std;
 
 const int MAX_N = 10e6 + 1;
@@ -42,6 +41,5 @@ int main()
         }
     }
     
-    system("pause");
     return 0;
 }

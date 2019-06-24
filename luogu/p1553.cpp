@@ -65,7 +65,6 @@ int main()
 
     cout << part1 << type << part2;
 
-    system("pause");
 
     return 0;
 }

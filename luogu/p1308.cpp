@@ -55,6 +55,5 @@ int main()
     else
         cout << time << " " << first;
 
-    system("pause");
     return 0;
 }

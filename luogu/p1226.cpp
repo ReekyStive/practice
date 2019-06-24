@@ -23,6 +23,6 @@ int main()
         p >>= 1;
     }
     cout << sb << "^" << sp << " mod " << k << "=" << ans << endl;
-    system("pause");
+    
     return 0;
 }

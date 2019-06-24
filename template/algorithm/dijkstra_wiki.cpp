@@ -85,6 +85,6 @@ int main()
 {
     Readin();
     Dijkstra(S);
-    system("pause");
+    
     return 0;
 }

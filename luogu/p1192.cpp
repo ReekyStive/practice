@@ -23,6 +23,5 @@ int main()
     }
     cout << s[n] << endl;
 
-    system("pause");
     return 0;
 }

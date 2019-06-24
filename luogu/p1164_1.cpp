@@ -1,6 +1,5 @@
 #include <iostream>
 #include <algorithm>
-#include <windows.h>
 using namespace std;
 
 int dp[2][10001];
@@ -24,6 +23,5 @@ int main()
                 dp[(i + 1) & 1][j] = dp[i & 1][j] + dp[i & 1][j - a[i]]; 
         }
     cout << dp[n & 1][m];
-    system("pause");
     return 0;
 }

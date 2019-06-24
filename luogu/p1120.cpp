@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 
 using namespace std;
 
@@ -25,6 +24,5 @@ int main()
     // for (i = 0; i < n; i++)
     //     cout << val[i] << " ";
     
-    system("pause");
     return 0;
 }

@@ -28,7 +28,6 @@ int main()
         fout << a << " " << b << " " << val << endl;
     }
 
-    system("pause");
 
     return 0;
 }
