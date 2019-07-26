@@ -1,2 +1,4 @@
 *.exe
 *.code-workspace
+*.out
+.vscode/
