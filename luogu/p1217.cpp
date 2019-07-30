@@ -2,7 +2,7 @@
 using namespace std;
 
 const int MAX_N = 10e8 + 1;
-bool prim[MAX_N];
+bool notprim[MAX_N];
 
 bool palin(int num)
 {
@@ -23,14 +23,14 @@ bool palin(int num)
 void gen(int max)
 {
     int j;
-    for (int i = 3; i <= max; i += 2)
+
+    for (int i = 3; i <= max / 3 + 1; i += 2)
     {
-        if (prim[i])
+        if (notprim[i])
             continue;
+        
         for (int j = 3; j * i <= max; j += 2)
-        {
-            prim[i * j] = true;
-        }
+            notprim[i * j] = true;
     }
 }
 
@@ -38,15 +38,19 @@ int main()
 {
     int a, b;
     cin >> a >> b;
+
     gen(b);
+
+    if (a % 2 == 0)
+        a++;
+
     for(int i = a; i <= b; i += 2)
     {
-        if (prim[i])
+        if (notprim[i])
             continue;
         if (palin(i))
             cout << i << endl;
-        if (i == a && a %2 == 0)
-            i--;
     }
+    
     return 0;
 }
