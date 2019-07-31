@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cmath>
+#include <algorithm>
 using namespace std;
 
 const int MAX_N = 10e8 + 1;
@@ -22,7 +24,7 @@ bool palin(int num)
 
 void gen(int max)
 {
-    int j;
+    int len;
 
     for (int i = 3; i <= max / 3 + 1; i += 2)
     {
@@ -39,6 +41,13 @@ int main()
     int a, b;
     cin >> a >> b;
 
+    int len = floor(log10(b) + 1);
+    if (len % 2 == 0)
+    {
+        len--;
+        b = pow(10, len);
+    }
+
     gen(b);
 
     if (a % 2 == 0)
@@ -46,6 +55,13 @@ int main()
 
     for(int i = a; i <= b; i += 2)
     {
+        if (i == 11)
+            cout << i << endl;
+        
+        len = floor(log10(i) + 1);
+        if (len % 2 == 0)
+            i = pow(10, len) + 1;
+        
         if (notprim[i])
             continue;
         if (palin(i))
