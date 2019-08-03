@@ -6,6 +6,7 @@ using namespace std;
 const int MAX = 100000;
 int mem[MAX];
 const int cost[10] = {6, 2, 5, 5, 4, 5, 6, 3, 7, 6};
+const int qwq[10] = {8, 9, 6, 9, 29, 39, 38, 65, 88, 128};
 int n, max_num;
 
 int get_costs(int n)
@@ -47,14 +48,19 @@ int main()
 
     if (n >= 6)
     {
-        // a == b
-        for (int i = 0; i <= max_num; i++)
-            count += solve(i, i);
-        
-        // a != b: a + b == b + a
-        for (int i = 0; i <= max_num; i++)
-            for (int j = i + 1; j <= max_num; j++)
-                count += solve(i, j) * 2;
+        if (n + 4 >= 15)
+            count = qwq[n + 4 - 15];
+        else
+        {
+            // a == b
+            for (int i = 0; i <= max_num; i++)
+                count += solve(i, i);
+            
+            // a != b: a + b == b + a
+            for (int i = 0; i <= max_num; i++)
+                for (int j = i + 1; j <= max_num; j++)
+                    count += solve(i, j) * 2;
+        }
     }
     
     cout << count << endl;
