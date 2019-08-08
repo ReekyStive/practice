@@ -40,15 +40,15 @@ int main()
             in_str[i] = '-';
     }
 
-    // '#' is 1x
+    string one = "1";
     for (int i = 0; i < in_str.length(); i++)
     {
         if (in_str[i] >= 'a' && in_str[i] <= 'z')
         {
             if (i == 0)
-                in_str[0] = '#';
+                in_str.insert(0, one);
             else if (in_str[i - 1] == '-' || in_str[i - 1] == '+')
-                in_str[i] = '#';
+                in_str.insert(i, one);
         }
     }
 
@@ -85,19 +85,15 @@ int main()
         // for (int j = pos_a; j < pos_b; j++)
         //     cout << in_str[j];
         
-        if (in_str[pos_b - 1] >= 'a' && in_str[pos_b - 1] <= 'z' || in_str[pos_b - 1] == '#')
+        if (in_str[pos_b - 1] >= 'a' && in_str[pos_b - 1] <= 'z')
             is_var = true;
         
-        if (in_str[pos_b - 1] != '#')
+
+        for (int j = pos_a; j < pos_b - is_var; j++)
         {
-            for (int j = pos_a; j < pos_b - is_var; j++)
-            {
-                tmp_val *= 10;
-                tmp_val += (in_str[j] - '0');
-            }
+            tmp_val *= 10;
+            tmp_val += (in_str[j] - '0');
         }
-        else
-            tmp_val = 1;
 
         // cout << " " << sign * tmp_val;
         // if (is_var)
