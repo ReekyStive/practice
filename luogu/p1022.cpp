@@ -52,8 +52,6 @@ int main()
         }
     }
 
-    // cout << in_str << endl;
-
     // ax + b = 0
     int a = 0, b = 0;
 
@@ -77,14 +75,7 @@ int main()
                 break;
 
         i = pos_b;
-
-        // if (sign == -1)
-        //     cout << '-';
-        // else
-        //     cout << '+';
-        // for (int j = pos_a; j < pos_b; j++)
-        //     cout << in_str[j];
-        
+   
         if (in_str[pos_b - 1] >= 'a' && in_str[pos_b - 1] <= 'z')
             is_var = true;
         
@@ -94,11 +85,6 @@ int main()
             tmp_val *= 10;
             tmp_val += (in_str[j] - '0');
         }
-
-        // cout << " " << sign * tmp_val;
-        // if (is_var)
-        //     cout << " var";
-        // cout << endl;
 
         if (is_var)
             a += sign * tmp_val;
@@ -110,9 +96,6 @@ int main()
         else
             sign = 1;
     }
-
-    // cout << "a = " << a << endl;
-    // cout << "b = " << b << endl;
 
     cout.flags(ios::fixed);
     cout.precision(3);
