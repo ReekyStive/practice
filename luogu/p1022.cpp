@@ -9,6 +9,15 @@ int main()
     cin >> in_str;
 
     int index_equal;
+    char var_letter;
+
+    for (int i = 0; i < in_str.length(); i++)
+        if (in_str[i] >= 'a' && in_str[i] <= 'z')
+        {
+            var_letter = in_str[i];
+            break;
+        }
+
     for (int i = 0; i < in_str.length(); i++)
     {
         if (in_str[i] == '=')
@@ -31,12 +40,26 @@ int main()
             in_str[i] = '-';
     }
 
+    // '#' is 1x
+    for (int i = 0; i < in_str.length(); i++)
+    {
+        if (in_str[i] >= 'a' && in_str[i] <= 'z')
+        {
+            if (i == 0)
+                in_str[0] = '#';
+            else if (in_str[i - 1] == '-' || in_str[i - 1] == '+')
+                in_str[i] = '#';
+        }
+    }
+
+    // cout << in_str << endl;
+
     // ax + b = 0
     int a = 0, b = 0;
 
     int sign = 1, pos_a = 0, pos_b = 0, tmp_val;
     bool is_var;
-    char var_letter;
+
     if (in_str[0] == '-')
     {
         sign = -1;
@@ -54,29 +77,56 @@ int main()
                 break;
 
         i = pos_b;
+
+        // if (sign == -1)
+        //     cout << '-';
+        // else
+        //     cout << '+';
+        // for (int j = pos_a; j < pos_b; j++)
+        //     cout << in_str[j];
         
-        if (in_str[pos_b - 1] >= 'a' && in_str[pos_b - 1] <= 'z')
-        {
-            var_letter = in_str[pos_b - 1];
-            pos_b--;
+        if (in_str[pos_b - 1] >= 'a' && in_str[pos_b - 1] <= 'z' || in_str[pos_b - 1] == '#')
             is_var = true;
-        }
         
-        for (int j = pos_b; j >= pos_a; j--)
+        if (in_str[pos_b - 1] != '#')
         {
-            tmp_val *= 10;
-            tmp_val += (in_str[j] - '0');
+            for (int j = pos_a; j < pos_b - is_var; j++)
+            {
+                tmp_val *= 10;
+                tmp_val += (in_str[j] - '0');
+            }
         }
+        else
+            tmp_val = 1;
+
+        // cout << " " << sign * tmp_val;
+        // if (is_var)
+        //     cout << " var";
+        // cout << endl;
 
         if (is_var)
-            a += tmp_val;
+            a += sign * tmp_val;
         else
-            b += tmp_val;
+            b += sign * tmp_val;
+
+        if (in_str[pos_b] == '-')
+            sign = -1;
+        else
+            sign = 1;
     }
+
+    // cout << "a = " << a << endl;
+    // cout << "b = " << b << endl;
 
     cout.flags(ios::fixed);
     cout.precision(3);
-    cout << var_letter << "=" << (double)(-b) / (double)a << endl;
+
+    double result = (double)(-b) / (double)a;
+
+    if (result <= 0 && result > -0.001)
+        cout << var_letter << "=0.000" << endl;
+    else
+        cout << var_letter << "=" << result << endl;
 
     return 0;
 }
