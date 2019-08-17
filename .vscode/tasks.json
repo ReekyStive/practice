@@ -6,19 +6,25 @@
             "windows": {
                 "command": "g++.exe",
                 "args": [
-                    "-g",
                     "${file}",
                     "-o",
-                    "${fileDirname}/${fileBasenameNoExtension}.exe"
+                    "${fileDirname}/${fileBasenameNoExtension}.exe",
+                    "-g",
+                    "-Wall",
+                    "-lm",
+                    "-std=c++17"
                 ]
             },
             "linux": {
                 "command": "g++",
                 "args": [
-                    "-g",
                     "${file}",
                     "-o",
-                    "${fileDirname}/${fileBasenameNoExtension}.out"
+                    "${fileDirname}/${fileBasenameNoExtension}.out",
+                    "-g",
+                    "-Wall",
+                    "-lm",
+                    "-std=c++17"
                 ]
             },
             "group": {
