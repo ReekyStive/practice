@@ -21,23 +21,27 @@ int main()
                 continue;
             
             if (m == 1)
-                cout << '+';
-            else if (m != 1)
             {
-                if (m == -1)
-                    cout << '-';
-                else
-                {
-                    if (m > 0 && i != n)
-                        cout << '+';
-                    cout << m;
-                }
+                if (i != n)
+                    cout << '+';
+            }
+            else if (m == -1)
+                cout << '-';
+            else
+            {
+                if (m > 0 && i != n)
+                    cout << '+';
+                cout << m;
             }
 
-            if (i >= 0)
+            if (i == 0)
+                if (m == 1 || m == -1)
+                    cout << '1';
+
+            if (i > 0)
             {
                 cout << 'x';
-                if (i >= 1)
+                if (i > 1)
                     cout << '^' << i;
             }
         }
