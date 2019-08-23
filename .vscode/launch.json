@@ -5,16 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "g++ build and debug active file",
             "type": "cppdbg",
             "request": "launch",
             "windows": {
                 "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "miDebuggerPath": "gdb.exe"
+                "miDebuggerPath": "D:/MinGW/mingw64/bin/gdb.exe"
             },
             "linux": {
                 "program": "${fileDirname}/${fileBasenameNoExtension}.out",
-                "miDebuggerPath": "gdb"
+                "miDebuggerPath": "/usr/bin/gdb"
             },
             "args": [],
             "stopAtEntry": false,

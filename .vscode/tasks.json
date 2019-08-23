@@ -4,7 +4,7 @@
             "type": "shell",
             "label": "g++ build active file",
             "windows": {
-                "command": "g++.exe",
+                "command": "D:/MinGW/mingw64/bin/g++.exe",
                 "args": [
                     "${file}",
                     "-o",
@@ -16,7 +16,7 @@
                 ]
             },
             "linux": {
-                "command": "g++",
+                "command": "/usr/bin/g++",
                 "args": [
                     "${file}",
                     "-o",
