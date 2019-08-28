@@ -1,21 +1,19 @@
 #include <iostream>
 #include <algorithm>
-#include <queue>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
-const int MAX_N = 100000;
-
 struct Player
 {
-    int id;
-    int score;
-    int ability;
+    int id = -1;
+    int score = -1;
+    int ability = -1;
     bool operator<(const Player &player) const
     {
         if (this -> score == player.score)
-            return this -> id < player.id;
+            return this -> id > player.id;
         else
             return this -> score < player.score;
     }
@@ -26,11 +24,11 @@ int main()
     int N, R, Q;
     cin >> N >> R >> Q;
 
-    priority_queue<Player, vector<Player>, greater<Player> > players;
-    priority_queue<Player, vector<Player>, greater<Player> > temp_pq;
+    priority_queue<Player> players;
+    priority_queue<Player> temp_pq;
     queue<Player> temp_que;
 
-    Player player;
+    Player player, temp_player;
     for (int i = 1; i <= 2 * N; i++)
     {
         player.id = i;
@@ -45,9 +43,30 @@ int main()
         players.push(player);
     }
 
-// todo:
-// players ==> temp_pq
-// temp_pq ==> players
+    priority_queue<Player, vector<Player>, less<Player> > *pq_a = &players;
+    priority_queue<Player, vector<Player>, less<Player> > *pq_b = &temp_pq;
+    for (int i = 0; i < R; i++)
+    {
+        while (!pq_a -> empty())
+        {
+            player = pq_a -> top();
+            pq_a -> pop();
+            temp_player = pq_a -> top();
+            pq_a -> pop();
+            if (player.ability > temp_player.ability)
+                player.score++;
+            else
+                temp_player.ability++;
+            pq_b -> push(player);
+            pq_b -> push(temp_player);
+        }
+        swap(pq_a, pq_b);
+    }
+
+    for (int i = 0; i < Q - 1; i++)
+        pq_a -> pop();
+    
+    cout << pq_a -> top().id << endl;
 
     return 0;
 }
