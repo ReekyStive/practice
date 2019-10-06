@@ -1,81 +1,55 @@
 #include <iostream>
-#include <cstdio>
-#include <cstring>
-#include <vector>
-#include <queue>
-
-#define maxn 1025
-
 using namespace std;
 
-vector<int> e[maxn];
-bool vis[maxn];
-int n, m;
-
-void dfs(int s)
+struct Pos
 {
-    if (vis[s])
-        return;
+    int x, y;
 
-    //    cout << "Now we are at point " << s << endl;
-    cout << s << " -> ";
-    vis[s] = 1;
-
-    for (int i = 0; i < e[s].size(); i++)
-        dfs(e[s][i]);
-
-    return;
-}
-
-void bfs(int s)
-{
-    queue<int> q;
-    q.push(s);
-    vis[s] = 1;
-
-    while (!q.empty())
+    Pos operator+(const Pos &right)
     {
-        for (int i = 0; i < e[q.front()].size(); i++)
-        {
-            if (vis[e[q.front()][i]])
-                continue;
-
-            vis[e[q.front()][i]] = 1;
-            q.push(e[q.front()][i]);
-        }
-        cout << q.front() << " -> ";
-        q.pop();
+        Pos result;
+        result.x = this -> x + right.x;
+        result.y = this -> y + right.y;
+        return result;
     }
-}
 
-void resetting()
-{
-    memset(vis, 0, sizeof(vis));
-    for (int i = 0; i < maxn; i++)
-        e[i].clear();
-}
+    Pos operator+(const int &right)
+    {
+        Pos result;
+        result.x = this -> x + right;
+        result.y = this -> y;
+        return result;
+    }
+
+    friend Pos operator+(const int & a, const Pos &right)
+    {
+        Pos result = right;
+        result.x = this -> x + a;
+        result.y = this -> y;
+        return result;
+    }
+    
+    friend std::ostream & operator<<(std::ostream &os, const Pos &pos)
+    {
+        os << '(' << pos.x << ", " << pos.y << ')';
+        return os;
+    }
+
+    Pos(int a = 0, int b = 0)
+    {
+        this -> x = a;
+        this -> y = b;
+    }
+};
 
 int main()
 {
-    bool con = 1;
-    while (con)
-    {
-        resetting();
-        int a, b, s;
-        scanf("%d %d %d", &n, &m, &s);
-
-        while (m--)
-        {
-            scanf("%d %d", &a, &b);
-            e[a].push_back(b);
-            e[b].push_back(a);
-        }
-
-        bfs(s);
-        cout << "out\nContinue?(Y/N) ";
-        char co;
-        cin >> co;
-        if (co == 'N')
-            con = 0;
-    }
+    Pos a(1, 2), b(3, 4);
+    Pos c;
+    c = a + b;
+    // c = a.operator+(b);
+    c = a + 1;
+    c = 1 + a;
+    cout << c << endl << c << endl;
+    return 0;
 }
