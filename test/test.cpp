@@ -8,48 +8,28 @@ struct Pos
     Pos operator+(const Pos &right)
     {
         Pos result;
-        result.x = this -> x + right.x;
-        result.y = this -> y + right.y;
-        return result;
-    }
-
-    Pos operator+(const int &right)
-    {
-        Pos result;
-        result.x = this -> x + right;
-        result.y = this -> y;
-        return result;
-    }
-
-    friend Pos operator+(const int & a, const Pos &right)
-    {
-        Pos result = right;
-        result.x = this -> x + a;
-        result.y = this -> y;
+        result.x = x + right.x;
+        result.y = y + right.y;
         return result;
     }
     
-    friend std::ostream & operator<<(std::ostream &os, const Pos &pos)
+    friend ostream& operator<<(std::ostream& os, const Pos& po)
     {
-        os << '(' << pos.x << ", " << pos.y << ')';
+        os << '(' << po.x << ", " << po.y << ')';
         return os;
     }
 
     Pos(int a = 0, int b = 0)
     {
-        this -> x = a;
-        this -> y = b;
+        x = a;
+        y = b;
     }
 };
 
 int main()
 {
     Pos a(1, 2), b(3, 4);
-    Pos c;
-    c = a + b;
-    // c = a.operator+(b);
-    c = a + 1;
-    c = 1 + a;
-    cout << c << endl << c << endl;
+    Pos c = a + b;
+    cout << a << " + " << b << " = " << c << endl;
     return 0;
 }
