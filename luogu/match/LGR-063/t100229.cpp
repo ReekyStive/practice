@@ -22,7 +22,7 @@ struct Tri
     }
 };
 
-bool able(int x, int y, int n, int m)
+std::set<int> getAbles(int x, int y, int n, int m)
 {
     std::set<int> ables;
 
@@ -56,13 +56,10 @@ bool able(int x, int y, int n, int m)
             ables.insert(z_b);
 
         if (ables.size() == 0)
-            return false;
+            return ables;
     }
 
-    if (ables.size() > 0)
-        return true;
-
-    return false;
+    return ables;
 }
 
 bool suit(int x, int y, int z, int n)
@@ -89,10 +86,14 @@ int main()
     {
         for (int y = 1; y <= m; y++)
         {
-            if (!able(x, y, n, m))
+            std::set<int> ables = getAbles(x, y, n, m);
+            if (ables.size() == 0)
                 continue;
+
             for (int z = 1; z <= m; z++)
             {
+                if (ables.count(z) == 0)
+                    continue;
                 if (suit(x, y, z, n))
                     result.insert(Tri(x, y, z));
             }
