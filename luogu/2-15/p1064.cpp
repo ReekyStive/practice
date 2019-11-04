@@ -40,10 +40,12 @@ int dp(int cur, int remain)
 {
     Item& it = items[cur];
 
-    if (cur < 0)
+    if (cur < 0 || remain <= 0)
         return 0;
-    if (remain < it.value)
-        return 0;
+    if (remain < it.value) {
+        bought[cur] = false;
+        return dp(cur - 1, remain);
+    }
 
     int res = 0;
 
@@ -58,7 +60,8 @@ int dp(int cur, int remain)
             int res_1 = dp(cur - 1, remain - it.value) + it.impo * it.value;
             int res_2 = dp(cur - 1, remain);
             res = max(res_1, res_2);
-        }
+        } else
+            res = dp(cur - 1, remain);
     }
 
     return res;
