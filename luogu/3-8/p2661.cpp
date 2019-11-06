@@ -2,7 +2,7 @@
 
 const int kMaxN = 200000;
 int t[kMaxN];
-bool curs[kMaxN];
+int curs[kMaxN];
 
 int solve(int n)
 {
