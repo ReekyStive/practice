@@ -15,7 +15,7 @@ void solve()
 
     while (n--)
     {
-        int q = a - (a - b) / 2;
+        int q = (a + 1 + b) / 2;
         cout << q << endl;
 
         string tip;
@@ -25,10 +25,10 @@ void solve()
             break;
 
         if (tip == small)
-            a = q;
+            a = q + 1;
 
         if (tip == big)
-            b = q;
+            b = q - 1;
     }
 
     return;
