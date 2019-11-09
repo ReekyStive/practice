@@ -1,14 +1,21 @@
 #include <iostream>
+#include <map>
 
 using namespace std;
 
 typedef long long ll;
+typedef pair<int, pair<int, int>> tri;
+
 const int mod = 998244353;
 const int maxn = 100000;
 int a[maxn];
+map<tri, ll> mem;
 
 ll sum(int k, int l, int r)
 {
+    if (mem[tri(k, pair(l, r))] > 0)
+        return mem[tri(k, pair(l, r))];
+
     ll res = 0;
 
     if (k == 1)
@@ -29,6 +36,9 @@ ll sum(int k, int l, int r)
             res %= mod;
         }
     }
+
+    if (mem[tri(k, pair(l, r))] == 0)
+        mem[tri(k, pair(l, r))] = res;
 
     return res;
 }
