@@ -29,9 +29,27 @@ int main()
     for (int i = 0; i < n - 1; i++)
         cin >> a[i];
 
+    int l = 0, r = k - 1;
     ll maxx = 0;
-    for (int i = 0; i < n - k; i++)
-        maxx = max(maxx, sum(i, i + k));
+    for (int i = 0; i < k; i++)
+        maxx += a[i];
+
+    ll tmp = maxx;
+
+    while (true)
+    {
+        r++;
+        if (r >= n)
+            break;
+
+        tmp -= a[l];
+        tmp += a[r];
+
+        l++;
+
+        if (tmp > maxx)
+            maxx = tmp;
+    }
 
     ll res = sum(0, n - 1) - maxx;
     cout << res << endl;
