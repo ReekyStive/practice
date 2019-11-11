@@ -1,28 +1,34 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
+
+typedef long long ll;
+ll k;
+
+// calc a^n quickly
+ll fbow(ll a, ll n)
+{
+    ll res = 1;
+    ll tmp = a;
+    while (n != 0)
+    {
+        if (n & 1)
+        {
+            res *= tmp;
+            res %= k;
+        }
+        tmp *= tmp;
+        tmp %= k;
+        n >>= 1;
+    }
+    return res;
+}
 
 int main()
 {
-    long long sb, sp, b, p, k;
-    long long ans = 1;
+    ll b, p;
     cin >> b >> p >> k;
-    sb = b;
-    sp = p;
 
-    while (p > 0)
-    {
-        if (p & 1)
-        {
-            ans *= b;
-            ans %= k;
-        }
+    cout << b << "^" << p << " mod " << k << "=" << fbow(b, p) % k << endl;
 
-        b *= b;
-        b %= k;
-        p >>= 1;
-    }
-    cout << sb << "^" << sp << " mod " << k << "=" << ans << endl;
-    
     return 0;
 }
