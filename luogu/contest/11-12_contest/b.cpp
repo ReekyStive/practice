@@ -4,16 +4,15 @@
 using namespace std;
 
 typedef long long ll;
-ll inf = 100000000;
 
 // a * a square need m bricks:
 // m = (a + 1) * a * 2
 // so:
-// a = -1 + (4 + 8 * m) ^ 0.5 / 4
+// a = -0.5 + (4 + 8 * m) ^ 0.5 / 4
 // m walls can build a * a square
 inline ll cnt(ll m)
 {
-    return -1 + pow((4 + 8 * m), 0.5) / 4;
+    return (ll)(-0.5 + pow((4 + 8 * m), 0.5) / 4);
 }
 
 ll solve(ll m)
