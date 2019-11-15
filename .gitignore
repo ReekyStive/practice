@@ -4,3 +4,5 @@
 *.swp
 _test*.cpp
 _test/
+*.in
+*.ans
