@@ -11,3 +11,5 @@ _test*.cpp
 _test/
 *.in
 *.ans
+.vscode/
+*.dSYM/
