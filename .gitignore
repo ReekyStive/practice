@@ -13,3 +13,4 @@ _test/
 *.ans
 .vscode/
 *.dSYM/
+.DS_Store
