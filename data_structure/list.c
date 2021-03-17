@@ -60,10 +60,10 @@ int length(ListNode *head)
     return len;
 }
 
-void reverse(ListNode **head)
+void reverse(ListNode *head)
 {
     ListNode *prev = NULL;
-    ListNode *curr = (*head)->next;
+    ListNode *curr = head->next;
     while (curr != NULL)
     {
         ListNode *next = curr->next;
@@ -71,7 +71,7 @@ void reverse(ListNode **head)
         prev = curr;
         curr = next;
     }
-    (*head)->next = prev;
+    head->next = prev;
 }
 
 void insert(ListNode *head, ElementType val) // suppose list is sorted greater
